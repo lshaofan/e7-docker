@@ -11,7 +11,6 @@ services:
       - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
       - ${NGINX_LOG_DIR}:/var/log/nginx/:rw
       - ${ADMIN_DIR}:/opt/www/dashboard/:rw
-
     environment:
       - TZ=Asia/Shanghai
     depends_on:
@@ -70,8 +69,10 @@ services:
     tty: true
     depends_on:
       - mysql
+      - redis
     networks:
       - default
+
 
 networks:
   default:
